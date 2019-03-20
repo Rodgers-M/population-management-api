@@ -78,6 +78,17 @@ class LocationController {
       return handleFailure(res, HttpStatus.INTERNAL_SERVER_ERROR, error)
     }
   }
+  static async deleteLocation(req, res) {
+    try {
+      const { id } = req.params
+      const location = await LocationsRepository.getLocationById(id)
+      if(!location) return handleFailure(res, HttpStatus.NOT_FOUND, { message: 'location with given Id not found' })
+      await LocationsRepository.deleteLocation(id)
+      return handleSuccess(res, HttpStatus.OK, 'location deleted successfuly')
+    } catch(error) {
+      return handleFailure(res, HttpStatus.INTERNAL_SERVER_ERROR, error)
+    }
+  }
 }
 
 module.exports = LocationController
