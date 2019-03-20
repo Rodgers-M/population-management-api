@@ -3,30 +3,20 @@ module.exports = (sequelize, DataTypes) => {
     id: {
       allowNull: false,
       primaryKey: true,
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
     },
     name: {
       allowNull: false,
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       unique: true,
     },
     females: {
       allowNull: false,
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     males: {
       allowNull: false,
-      type: Sequelize.INTEGER
-    },
-    parentLocation: {
-      allowNull: true,
-      type: Sequelize.STRING,
-      references: {
-        model: 'locations',
-        key: 'id'
-      },
-      onUpdate: 'CASCADE',
-      onDelete: 'SET NULL',
+      type: DataTypes.INTEGER
     },
   }, {
     tableName: 'locations'

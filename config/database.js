@@ -1,7 +1,7 @@
 const config = require('./config')
 
 const defaultConfig = {
-  database: config.dbName,
+  database: config.databaseName,
   username: config.dbUsername,
   password: config.dbPassword,
   host: config.host,
